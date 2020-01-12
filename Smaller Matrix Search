@@ -1,0 +1,38 @@
+#include<stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int a[100][100],b[100][100];
+    int i,j,r,c,m=0,o=0,k,l,x,y;
+    scanf("%d%d",&r,&c);
+    for(i=0;i<r;i++){
+        for(j=0;j<r;j++){
+            scanf("%d",&a[i][j]);
+        }
+    }
+    for(i=0;i<c;i++){
+        for(j=0;j<c;j++){
+            scanf("%d",&b[i][j]);
+        }
+    }
+    for(i=0;i<r;i++){
+        for(j=0;j<r;j++){
+            if(a[i][j]==b[0][0]){
+                for(x=i,k=0;x<i+c,k<c;x++,k++){
+                    for(y=j,l=0;y<j+c,l<c;y++,l++){
+                        if(a[x][y]==b[k][l]){
+                            m++;
+                        }
+                    }
+                }
+            }
+            if(m==c*c){
+                o=1;
+            }
+            m=0;
+        }
+    }
+    printf(o==1?"True":"False");
+
+}
